@@ -2,12 +2,30 @@
 <html>
   <head>
     <title>This is the title of the webpage!</title>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.16.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.16.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.12.2"></script>
   </head>
   <body>
       <p>
-      This is an example paragraph. Anything in the <strong>body</strong>
-      tag will appear on the page, just like this <strong>p</strong>
-      tag and its contents.
+          Here's Jasmine's paragraph!
       </p>
+      <p>
+      This is Assignment 4 for IS445 Data Visualization. I used vega-lite to make visualization on building inventory data.
+      </p>
+      <div id="viz">
+      </div>
+      <script>
+var vlSpec = {
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "data": {"url": "https://raw.githubusercontent.com/wenyu125/wenyu125-data-visualization.github.io/main/building_inventory.json"},
+    "mark": "point",
+    "encoding": {
+        "x": {"field": "Year Acquired", "type": "quantitative"},
+        "y": {"field": "Year Constructed", "type": "quantitative"}
+    }
+};
+          vegaEmbed('#viz', vlSpec);
+      </script>
   </body>
 </html>
